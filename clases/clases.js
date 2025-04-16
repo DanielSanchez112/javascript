@@ -4,10 +4,23 @@
 
 //se define la clase y su nombre
 class Persona {
+    //definir atrubutos staticos
+
+    static contadorObjetosPersona = 0 //atrubuto de la clase
+    static contadorIdPersona = 0 //atributo para crear un id
+
+    static get MAX_OBJ(){
+        return 5
+    }//el punto es crear una variable que no se pueda modificar
+
+    email = null //atributo de instancia o objeto
+
     //dentro del constructor se definen los atributos de la clase
     constructor(nombre,apellido){
         this._nombre = nombre
         this._appellido = apellido
+        this.idPersona = ++Persona.contadorIdPersona
+
     }
 
     //haciendo uso de los atributos uno puede crear metodos   
@@ -33,12 +46,20 @@ class Persona {
 
     //metodo para obtener el nombre completo
     nombreCompleto(){
-        return this._nombre + " " + this._appellido
+        return "id: "+ this.idPersona + ", " + this._nombre + " " + this._appellido
     }
 
     //polimorfismo 
     toString(){
         return this.nombreCompleto()
+    }
+
+    static saludar(){
+        console.log()
+    }
+
+    static saludar2(persona){
+        console.log(persona.nombreCompleto())
     }
 }
 
@@ -90,3 +111,25 @@ console.log(empleado1.nombre)
 //se accede al metodo de la clase padre donde escribe el nombre completo
 console.log(empleado1.nombreCompleto())
 console.log(empleado1.toString())
+
+//prueba del metodo estatico
+//persona1.saludar() no es posible llamar un metodo static desde un metodo
+
+Persona.saludar() //solo se puede llamar desde la clase
+
+Persona.saludar2(empleado1)// al pasarle un parametro persona podemos seleccionar 
+// el objeto que queremos ver
+
+Empleado.saludar2(empleado1)//tambien se puede llamar desde la clase hija
+//por que es una clase que hereda de la clase padre
+
+console.log(Persona.contadorObjetosPersona) //accedemos a la variable estatica
+//lo mismo funciona con la clase hija
+
+//accedemos al atrubuto email del objeto
+console.log(empleado1.email);
+
+//aqui accedemos a todas las propiedades de los objetos y dentro esta el id
+console.log(persona1,persona2,empleado1)
+
+console.log(Persona.MAX_OBJ) //accedemos al atributo estatico de la clase
