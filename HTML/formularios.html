@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formularios</title>
+</head>
+<body>
+    <form id="formulario" action="">
+        Nombre: <input type="text" name="nombre" value="juan">
+        <br>
+        Apellido: <input type="text" name="apellido" value="Perez">
+        <br>
+    </form>
+    <button onclick="mostrarValores()" >Mostrar</button>
+    <button onclick="mostrarvaloresSinFor()">Mostrar 2</button>
+    <div id="valores"></div>
+
+</body>
+
+<script>
+    let formulario = document.forms['formulario']
+
+    function mostrarValores(){
+        let texto = ''
+        for(elemento of formulario){
+            texto += elemento.value + "<br/>"
+        }
+        document.getElementById('valores').innerHTML = "boton 1" + "<br/>" + texto
+    }
+
+    function mostrarvaloresSinFor(){
+        let nombre = formulario['nombre'].value
+        let apellido = formulario['apellido'].value
+        texto = nombre + "<br/>" + apellido 
+        document.getElementById('valores').innerHTML = "boton 2 " + "<br/>" + texto
+    }
+</script>
+
+</html>

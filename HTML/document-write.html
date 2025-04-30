@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document.write()</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo" class="azul">Cabecero que desaparece al precionar el boton</h1>
+    <br>
+    <button onclick="mostrar()">Mostrar</button>
+    <button onclick="cambiarImange()">Motrar Imagen</button>
+    <button onclick="cambiarColor()">cambiar Color del titulo</button>
+    <br>
+    <br>
+
+    <!--cambio de valor de atributos-->
+    <img id="imagen" src="http://globalmentoring.com.mx/imagenes/javascript.png" alt="">
+    <br>
+</body>
+
+<script>
+    document.write("escritura en javascript")
+
+    function mostrar(){
+        document.write("todos los datos desaparecen al generar este document.write()")
+    }
+
+    function cambiarImange(){
+        if(document.getElementById('imagen').src === 'http://globalmentoring.com.mx/imagenes/html5.png'){
+            document.getElementById('imagen').src = 'http://globalmentoring.com.mx/imagenes/javascript.png'
+        }else{
+            document.getElementById('imagen').src = 'http://globalmentoring.com.mx/imagenes/html5.png'
+        }
+    }
+
+    function cambiarColor(){
+        if(document.getElementById('titulo').style.color === 'blue'){
+            document.getElementById('titulo').style.color = 'red'
+        }else{
+            document.getElementById('titulo').style.color = 'blue'
+        }
+    }
+</script>
+</html>

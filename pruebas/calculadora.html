@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="calculadora">
+        calculo: 
+        <input id="primerDigito" type="number" name="primer digito" value="">
+        <input id="aperando" type="text" name="operando" value="">
+        <input id="segundoDigito" type="number" name="segundo digito" value="">
+    </div>
+    <br>
+
+    <button id="calcular" onclick="calcular()">calcular</button>
+    <div id="respuesta">
+        Respuesta: 
+    </div>
+
+</body>
+
+<script>
+    function calcular(){
+        let a = parseInt(document.getElementById('primerDigito').value)
+        let x = document.getElementById('aperando').value
+        let b = parseInt(document.getElementById('segundoDigito').value)
+        let respuesta = 0
+        
+        if(x === "+"){
+            respuesta = a+b
+        }else if(x === "-"){
+            respuesta = a-b
+        }else if(x === "/"){
+            respuesta = a/b
+        }else if(x === "*"){
+            respuesta = a*b
+        }
+
+        document.getElementById('respuesta').innerHTML = "Respuesta: " + respuesta
+    }
+
+</script>
+</html>
