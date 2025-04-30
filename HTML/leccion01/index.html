@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM con javascript</title>
+    <style>
+        .azul{
+            color: blue
+        }
+    </style>
+</head>
+<body>
+    <h1 id="cabecera">Ejemplo DOM con javascript</h1>
+    <p id='parrafo' class="azul">---JS---</p>
+
+    <p id="parrafo1">---TS---</p>
+<script>
+    let cabecera = document.getElementById('cabecera')
+    let parrafo = document.getElementById('parrafo')
+
+    //obtener todos los elemetos que sean de tipo parrafo
+    let parrafos = document.getElementsByTagName('p')
+
+    //obtener todos los elemetos que en su clase tengan azul
+    let azul = document.getElementsByClassName('azul')
+
+    //obtener los elementos que sean de tipo parrafo y clase azul
+    let elemento = document.querySelectorAll('p.azul')
+
+    console.log('valor del cabecero: ' +'"'+ cabecera.innerHTML +'"')
+    console.log('valor del parrafo: ' +'"'+ parrafo.innerHTML +'"')
+
+    for(i of parrafos){
+        console.log(`${i.innerHTML}`)
+    }
+</script>
+
+</body>
+</html>
