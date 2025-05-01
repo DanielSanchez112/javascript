@@ -105,7 +105,9 @@
 
     let numbers = document.getElementsByName('number').forEach(button =>{
         button.addEventListener('click', () =>{
-
+            if(operand === null){
+                eliminar()
+            }            
 
             const numbers = button.innerHTML
             current += numbers
@@ -161,6 +163,7 @@
         a = resultado
         b = null
         current = ''
+        operand = null
     }
 </script>
 
